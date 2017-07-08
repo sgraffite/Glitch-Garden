@@ -53,13 +53,13 @@ public class LevelManager : MonoBehaviour {
             return;
         }
 
-        Debug.Log("Currrent Level Index = " + currentLevel);
+        //Debug.Log("Currrent Level Index = " + currentLevel);
         SceneManager.LoadScene(UnityEditor.EditorBuildSettings.scenes[sceneIndex].path);
         if (GetCurrentLevelName().StartsWith("Level_"))
         {
             currentLevel = SceneManager.GetActiveScene().buildIndex;
         }
-        Debug.Log("New Level Index = " + currentLevel);
+        //Debug.Log("New Level Index = " + currentLevel);
     }
 
 	public void LoseLevel(){
