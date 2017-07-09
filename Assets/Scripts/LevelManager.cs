@@ -16,7 +16,10 @@ public class LevelManager : MonoBehaviour {
             currentLevel = SceneManager.GetActiveScene().buildIndex;
         }
 
-        Invoke("LoadNextLevel", autoLoadNextLevelAfter);
+        if(autoLoadNextLevelAfter > 0)
+        {
+            Invoke("LoadNextLevel", autoLoadNextLevelAfter);
+        }
 	}
 
     public string GetCurrentLevelName()
