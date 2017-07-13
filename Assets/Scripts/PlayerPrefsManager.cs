@@ -9,7 +9,7 @@ public class PlayerPrefsManager : MonoBehaviour {
 
     public static void SetMasterVolume(float volume)
     {
-        if (volume <= 0f || volume >= 1)
+        if (volume >= 0 && volume <= 1f)
         {
             Debug.Log("Master volume out of range");
             return;
@@ -64,7 +64,7 @@ public class PlayerPrefsManager : MonoBehaviour {
 
     #region Difficulty
 
-    public static void SetDifficulty(float difficulty)
+    public static void SetDifficulty(int difficulty)
     {
         if (!IsValidDifficulty(difficulty))
         {
@@ -72,14 +72,14 @@ public class PlayerPrefsManager : MonoBehaviour {
             return;
         }
 
-        PlayerPrefs.SetFloat(DIFFICULTY_KEY, difficulty);
+        PlayerPrefs.SetInt(DIFFICULTY_KEY, difficulty);
     }
 
-    public static float GetDifficulty()
+    public static int GetDifficulty()
     {
         if (!PlayerPrefs.HasKey(DIFFICULTY_KEY))
         {
-            return 0f;
+            return 0;
         }
 
         return PlayerPrefs.GetInt(DIFFICULTY_KEY);
@@ -97,8 +97,8 @@ public class PlayerPrefsManager : MonoBehaviour {
         return false;
     }
 
-    private static bool IsValidDifficulty(float difficulty)
+    private static bool IsValidDifficulty(int difficulty)
     {
-        return difficulty >= 0f && difficulty <= 1f;
+        return difficulty >= 1 && difficulty <= 3;
     }
 }

@@ -59,6 +59,11 @@ public class MusicManager : MonoBehaviour {
         PlayMusic();
     }
 
+    public void SetVolume(float volume)
+    {
+        music.volume = volume;
+    }
+
     private void QueueNewMusicByLevelName()
     {
         if (!musicCollection.ContainsKey(currentLevelName))
