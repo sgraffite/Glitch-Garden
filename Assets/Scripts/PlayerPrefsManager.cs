@@ -9,9 +9,9 @@ public class PlayerPrefsManager : MonoBehaviour {
 
     public static void SetMasterVolume(float volume)
     {
-        if (volume >= 0 && volume <= 1f)
+        if (volume < 0 || volume > 1f)
         {
-            Debug.Log("Master volume out of range");
+            Debug.Log("Master volume out of range: " + volume);
             return;
         }
 

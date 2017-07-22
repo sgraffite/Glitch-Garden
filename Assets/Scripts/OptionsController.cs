@@ -24,7 +24,6 @@ public class OptionsController : MonoBehaviour {
 	void Update () {
         musicManager.SetVolume(volumeSlider.value);
         SetDifficulty(Mathf.FloorToInt(difficultySlider.value));
-
     }
 
     private void SetDifficulty(int difficulty)
@@ -42,6 +41,7 @@ public class OptionsController : MonoBehaviour {
 
     public void SaveAndExit()
     {
+        Debug.Log(volumeSlider.value);
         PlayerPrefsManager.SetMasterVolume(volumeSlider.value);
         levelManager.LoadLevel("01a Main Menu");
     }
